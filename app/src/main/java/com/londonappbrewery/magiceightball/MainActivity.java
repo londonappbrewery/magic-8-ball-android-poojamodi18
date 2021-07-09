@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView ballimage = findViewById(R.id.image_ball);
 
-        final int[] ballArray = {R.drawable.ball1,
-                R.drawable.ball2,
-                R.drawable.ball3,
-                R.drawable.ball4,
-                R.drawable.ball5};
+
+        final int[] ballArray = new int[]{
+            R.drawable.ball1,
+            R.drawable.ball2,
+            R.drawable.ball3,
+            R.drawable.ball4,
+            R.drawable.ball5
+        };
 
         askButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Random randomNumberGenerator = new Random();
                 int number = randomNumberGenerator.nextInt(5);
-                ballimage.setImageResource(ballArray[number]);
+                int imageResourceID = ballArray[number];
+                Log.d("click","button clicked");
+                ballimage.setImageResource(imageResourceID);
             }
         });
     }
